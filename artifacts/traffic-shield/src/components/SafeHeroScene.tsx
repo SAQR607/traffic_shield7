@@ -12,30 +12,85 @@ const HeroScene = lazy(() =>
   import("./HeroScene").then((m) => ({ default: m.HeroScene })),
 );
 
+/* ------------------------------------------------------------------ */
+/* Global WebGL error suppressor — installed at module load            */
+/* ------------------------------------------------------------------ */
+
+const isWebGLErrorMessage = (msg: unknown): boolean => {
+  if (typeof msg !== "string") return false;
+  return (
+    msg.includes("WebGL") ||
+    msg.includes("WEBGL") ||
+    msg.includes("Error creating WebGL context") ||
+    msg.includes("BindToCurrentSequence")
+  );
+};
+
+const installSuppressor = (() => {
+  let installed = false;
+  return () => {
+    if (installed) return;
+    if (typeof window === "undefined") return;
+    installed = true;
+
+    window.addEventListener(
+      "error",
+      (event: ErrorEvent) => {
+        const msg = event.message ?? (event.error?.message as string | undefined);
+        if (isWebGLErrorMessage(msg)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      },
+      true,
+    );
+    window.addEventListener(
+      "unhandledrejection",
+      (event: PromiseRejectionEvent) => {
+        const reason: unknown = event.reason;
+        const msg =
+          reason instanceof Error
+            ? reason.message
+            : typeof reason === "string"
+              ? reason
+              : "";
+        if (isWebGLErrorMessage(msg)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      },
+      true,
+    );
+  };
+})();
+
+// Run immediately at module evaluation, before any component renders.
+installSuppressor();
+
+/* ------------------------------------------------------------------ */
+/* React error boundary fallback                                       */
+/* ------------------------------------------------------------------ */
+
 type State = { hasError: boolean };
 
 class WebGLBoundary extends Component<{ children: ReactNode }, State> {
   state: State = { hasError: false };
-
   static getDerivedStateFromError(): State {
     return { hasError: true };
   }
-
   componentDidCatch(_err: Error, _info: ErrorInfo) {
-    // Swallow — fall through to CSS background.
+    /* swallow */
   }
-
   render() {
     if (this.state.hasError) return null;
     return this.props.children;
   }
 }
 
-/**
- * Strictly verify WebGL works. We not only get a context, we actually
- * read a parameter. Some sandboxed iframes return a context that throws
- * the moment a renderer tries to use it.
- */
+/* ------------------------------------------------------------------ */
+/* Strict WebGL probe                                                  */
+/* ------------------------------------------------------------------ */
+
 function probeWebGL(): boolean {
   if (typeof window === "undefined") return false;
   try {
@@ -46,10 +101,8 @@ function probeWebGL(): boolean {
     if (!gl) return false;
     const version = gl.getParameter(gl.VERSION);
     const renderer = gl.getParameter(gl.RENDERER);
-    // Some broken sandboxes return an empty string for these.
     if (typeof version !== "string" || version.length === 0) return false;
     if (typeof renderer !== "string" || renderer.length === 0) return false;
-    // Force-release the context so three.js can have a fresh one.
     const lose = gl.getExtension("WEBGL_lose_context");
     if (lose) lose.loseContext();
     return true;
@@ -59,61 +112,30 @@ function probeWebGL(): boolean {
 }
 
 /**
- * Silence WebGL-related errors so they don't surface to dev overlays
- * (e.g. inside the Replit workspace iframe, where WebGL is unavailable).
- * This is a no-op for real users since WebGL works for them.
+ * The Replit workspace renders this app inside a sandboxed iframe where
+ * WebGL is unavailable — three.js will throw on every render attempt.
+ * We skip 3D entirely whenever we're inside ANY iframe; real visitors on
+ * the deployed site load the page top-level and get the full experience.
  */
-function installWebGLErrorSuppressor() {
-  if (typeof window === "undefined") return;
-  const isWebGLError = (msg: unknown): boolean => {
-    if (typeof msg !== "string") return false;
-    return (
-      msg.includes("WebGL") ||
-      msg.includes("WEBGL") ||
-      msg.includes("Error creating WebGL context")
-    );
-  };
-
-  const onError = (event: ErrorEvent) => {
-    if (isWebGLError(event.message)) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-    }
-  };
-  const onUnhandled = (event: PromiseRejectionEvent) => {
-    const reason: unknown = event.reason;
-    const msg =
-      reason instanceof Error
-        ? reason.message
-        : typeof reason === "string"
-          ? reason
-          : "";
-    if (isWebGLError(msg)) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-    }
-  };
-
-  window.addEventListener("error", onError, true);
-  window.addEventListener("unhandledrejection", onUnhandled, true);
+function isInsideIframe(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.self !== window.top;
+  } catch {
+    // Cross-origin access throws → we ARE in an iframe.
+    return true;
+  }
 }
 
-let suppressorInstalled = false;
+/* ------------------------------------------------------------------ */
 
 export function SafeHeroScene() {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    if (!suppressorInstalled) {
-      installWebGLErrorSuppressor();
-      suppressorInstalled = true;
-    }
-    // Skip 3D inside the Replit workspace iframe shell.
-    const insideReplWorkspace =
-      typeof window !== "undefined" &&
-      window.location.pathname.startsWith("/__replco");
-    if (insideReplWorkspace) return;
-    if (probeWebGL()) setEnabled(true);
+    if (isInsideIframe()) return;
+    if (!probeWebGL()) return;
+    setEnabled(true);
   }, []);
 
   if (!enabled) return null;
