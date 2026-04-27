@@ -5,20 +5,7 @@
  * Traffic Shield AI API specification
  * OpenAPI spec version: 0.1.0
  */
-export interface HealthStatus {
-  status: string;
-}
-
-/**
- * Language the form was submitted in
- */
-export type DemoRequestInputLocale =
-  (typeof DemoRequestInputLocale)[keyof typeof DemoRequestInputLocale];
-
-export const DemoRequestInputLocale = {
-  en: "en",
-  ar: "ar",
-} as const;
+import type { DemoRequestInputLocale } from "./demoRequestInputLocale";
 
 export interface DemoRequestInput {
   /**
@@ -41,16 +28,4 @@ export interface DemoRequestInput {
   message: string;
   /** Language the form was submitted in */
   locale?: DemoRequestInputLocale;
-}
-
-export interface DemoRequestResponse {
-  id: number;
-  createdAt: string;
-  /** Whether the Telegram notification was delivered */
-  notified: boolean;
-}
-
-export interface ErrorResponse {
-  error: string;
-  details?: string;
 }

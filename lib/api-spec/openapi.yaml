@@ -3,13 +3,15 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Traffic Shield AI API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: demo
+    description: Demo / contact requests
 paths:
   /healthz:
     get:
@@ -24,6 +26,33 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /demo:
+    post:
+      operationId: createDemoRequest
+      tags: [demo]
+      summary: Submit a demo / contact request
+      description: |
+        Stores a new demo request in the database and forwards a notification to
+        the configured Telegram bot.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DemoRequestInput"
+      responses:
+        "201":
+          description: Demo request created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoRequestResponse"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +62,57 @@ components:
           type: string
       required:
         - status
-
+    DemoRequestInput:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Full name of the requester
+        email:
+          type: string
+          format: email
+          maxLength: 320
+        company:
+          type: string
+          minLength: 1
+          maxLength: 200
+        message:
+          type: string
+          minLength: 1
+          maxLength: 4000
+        locale:
+          type: string
+          enum: [en, ar]
+          description: Language the form was submitted in
+      required:
+        - name
+        - email
+        - company
+        - message
+    DemoRequestResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+        notified:
+          type: boolean
+          description: Whether the Telegram notification was delivered
+      required:
+        - id
+        - createdAt
+        - notified
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: string
+      required:
+        - error
