@@ -4,8 +4,8 @@ export const media = {
     twitter: "https://x.com/trafficshieldai?s=21",
   },
   contact: {
-    email: "contact@trafficshield.ai",
-    website: "www.trafficshield.ai",
+    email: "contact@trafficshield.cloud",
+    website: "www.trafficshield.cloud",
     domain: "trafficshield.cloud",
   },
   brand: {
