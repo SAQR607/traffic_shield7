@@ -1,0 +1,168 @@
+You are a senior full-stack engineer.
+
+Build a production-ready, bilingual (EN/AR) single-page website for a cybersecurity company “Traffic Shield AI”, optimized for Replit development and Vercel deployment.
+
+========================
+LANGUAGE SYSTEM
+========================
+
+- Default language: English
+- Secondary: Arabic (RTL fully supported)
+- Auto-generate Arabic content from English (clean, professional, not literal translation)
+- No external CMS
+- Store all content in ONE file: /config/content.ts
+
+Structure example:
+
+export const content = {
+  en: { ... },
+  ar: { ... }
+}
+
+- Language toggle in navbar
+- Persist language using localStorage
+- Detect direction (dir="rtl" for Arabic)
+
+========================
+MEDIA SYSTEM
+========================
+
+- Single file: /config/media.ts
+- All images, icons, links controlled from this file
+
+Example:
+
+export const media = {
+  social: {
+    linkedin: "https://www.linkedin.com/company/trafficshieldai/",
+    twitter: "https://x.com/trafficshieldai?s=21"
+  },
+  assets: {
+    heroBg: "/assets/hero.png"
+  }
+}
+
+========================
+TECH STACK
+========================
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- @react-three/fiber (medium-level 3D, optimized)
+- No heavy dependencies
+
+========================
+DESIGN SYSTEM
+========================
+
+Colors:
+- White (#FFFFFF)
+- Black (#000000)
+- Gold (#C9A14A or gradient variants)
+
+Style:
+- Minimal
+- Premium
+- Cybersecurity / futuristic
+- No logo (typography-based branding)
+
+========================
+3D REQUIREMENT
+========================
+
+- Medium complexity
+- Abstract animated nodes / encryption network
+- Must be lightweight
+- Canvas isolated, no performance drop
+
+========================
+SECTIONS (ONE PAGE)
+========================
+
+1. Hero
+2. Problem
+3. Solution
+4. Technology
+5. Performance (animated counters)
+6. Architecture
+7. Use Cases
+8. Dashboard Preview
+9. Why Us
+10. Roadmap
+11. Contact / Demo CTA
+
+========================
+DEMO BOOKING (REAL)
+========================
+
+- No external services
+- Build API route: /api/demo
+
+Flow:
+- Button → Modal
+- Fields:
+  - Name
+  - Email
+  - Company
+  - Message
+
+On submit:
+- Store data in simple JSON file OR lightweight DB (better: use Vercel KV or SQLite if possible)
+- Send notification to Telegram bot
+
+Telegram:
+- Use BOT TOKEN + CHAT ID via env variables
+
+========================
+ENV VARIABLES
+========================
+
+- TELEGRAM_BOT_TOKEN
+- TELEGRAM_CHAT_ID
+
+========================
+INTERACTIONS
+========================
+
+- Sticky navbar
+- Smooth scroll
+- Hover animations
+- Section reveal animations
+- Animated counters
+- Clean modal UX
+
+========================
+SEO
+========================
+
+- Domain: trafficshield.cloud
+- Metadata configured
+- OpenGraph tags
+
+========================
+OUTPUT REQUIRED
+========================
+
+1. Full folder structure
+2. All files (clean modular code)
+3. content.ts (EN + AR generated properly)
+4. media.ts
+5. API route (Telegram integration)
+6. Instructions:
+   - Run in Replit
+   - Deploy on Vercel
+   - Setup Telegram bot
+
+========================
+CONSTRAINTS
+========================
+
+- No filler text
+- No placeholder lorem ipsum
+- Real content based on cybersecurity positioning
+- Arabic must be correct and professional
+- Clean, scalable code
+
+Generate now.

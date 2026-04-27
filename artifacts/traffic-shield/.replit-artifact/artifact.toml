@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Traffic Shield AI"
+version = "1.0.0"
+id = "artifacts/traffic-shield"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22909
+
+[services.development]
+run = "pnpm --filter @workspace/traffic-shield run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/traffic-shield", "run", "build" ]
+publicDir = "artifacts/traffic-shield/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22909"
+BASE_PATH = "/"
