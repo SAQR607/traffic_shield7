@@ -1,0 +1,146 @@
+You are a senior full-stack engineer متخصص في Vercel + Serverless + Vite + pnpm monorepo.
+
+I have a project that works correctly on Replit preview:
+
+* Users submit a form
+* Data is sent to Telegram successfully
+
+BUT after deploying to Vercel:
+
+* Form submission fails
+* No requests reach Telegram
+* Likely due to backend not working on Vercel
+
+Your job is to FIX this completely from root cause.
+
+---
+
+## 🔍 Diagnosis Requirements
+
+1. Detect how form submission currently works:
+
+   * Is it using Express server?
+   * Is it calling localhost or external URL?
+   * Identify broken logic for Vercel
+
+2. Detect Telegram integration:
+
+   * Where bot token is used
+   * Where chat_id is used
+
+---
+
+## 🛠️ Required Fixes
+
+### 1. Convert backend to Vercel Serverless API
+
+Create:
+`/api/send.ts`
+
+Implementation requirements:
+
+* Handle POST requests only
+* Parse JSON body
+* Send message to Telegram using fetch
+* Return proper JSON response
+* Handle errors safely
+
+Example behavior:
+
+* Input: { name, phone, message }
+* Output: { success: true }
+
+---
+
+### 2. Use Environment Variables properly
+
+Replace ANY hardcoded secrets with:
+
+process.env.TELEGRAM_BOT_TOKEN
+process.env.TELEGRAM_CHAT_ID
+
+Do NOT leave tokens in code.
+
+---
+
+### 3. Fix Frontend Request
+
+Update ALL form submission logic:
+
+* Replace any URL like:
+  [http://localhost:xxxx](http://localhost:xxxx)
+  or Replit URL
+
+WITH:
+fetch('/api/send')
+
+* Ensure:
+  method: POST
+  headers: application/json
+  body: JSON.stringify(data)
+
+---
+
+### 4. Add Validation + Debugging
+
+* Validate empty fields before sending
+* Log errors in console
+* Show user-friendly message on failure
+
+---
+
+### 5. Ensure Vercel Compatibility
+
+* No Express server should be required
+* No long-running server processes
+* API must be serverless compatible
+
+---
+
+### 6. Verify Folder Structure
+
+Ensure project contains:
+
+/api/send.ts
+
+AND it is deployed correctly
+
+---
+
+### 7. Optional Enhancements (implement if easy)
+
+* Add loading state on submit
+* Add success message UI
+* Retry once if request fails
+
+---
+
+## 📦 Output Format
+
+1. Show created file:
+   /api/send.ts
+
+2. Show updated frontend code (BEFORE → AFTER)
+
+3. Show any removed Express code (if exists)
+
+4. List required Environment Variables:
+
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID
+
+5. Confirm system works on Vercel
+
+---
+
+## ⚠️ Constraints
+
+* Do NOT break existing UI
+* Do NOT remove form fields
+* Keep TypeScript valid
+* Keep code clean and production-ready
+
+---
+
+Fix the system end-to-end so that:
+User submits form → API runs on Vercel → Telegram receives message successfully.
