@@ -82,6 +82,167 @@ export const content = {
       pullquote:
         "By turning the physical world into cryptographic material, we eliminate the vulnerability of static secrets.",
     },
+    whitepaper: {
+      eyebrow: "Healthcare Security Brief",
+      title:
+        "Beyond Passwords: The Era of Biometric Zero-Trust in Healthcare",
+      subtitle:
+        "Why healthcare security needs a move beyond password-based access.",
+      overview:
+        "The healthcare sector sits at the intersection of the most sensitive personal data and the most aggressive threat actors. Legacy password and device-based authentication are no longer adequate. This brief outlines a conceptual framework combining AES-256 for high-speed local encryption with RSA-2048 for secure key wrapping — anchored by continuous, local biometric verification and governed by zero-trust principles.",
+      concepts: [
+        {
+          title: "Why Healthcare Is a High-Value Target",
+          body: "Medical records command a significant premium in illicit markets. Ransomware groups and state-sponsored actors routinely prioritise healthcare institutions because their operational continuity pressure makes rapid capitulation more likely. A single breach can expose patient histories, imaging data, and insurance information for millions of individuals.",
+        },
+        {
+          title: "The Limits of Password-Based Access",
+          body: "Static credentials are inherently vulnerable: they can be phished, leaked in third-party breaches, shared informally among colleagues, or captured through keylogging. Device-based authentication adds a second factor, but a stolen or compromised device removes that assurance. A continuous, local biometric layer closes this gap without requiring centralised storage of identity data.",
+        },
+        {
+          title: "A Hybrid Encryption Architecture",
+          body: "AES-256 delivers the throughput necessary to encrypt large DICOM imaging files or bulk patient records in near-real time on the local node. RSA-2048 wraps the per-file symmetric key so that only the verified recipient can unwrap and use it. Together, these two well-established standards provide both performance and rigorous access control.",
+        },
+        {
+          title: "Zero-Trust and Compliance Alignment",
+          body: "The zero-trust model demands that no user, device, or network segment is trusted by default, regardless of perimeter position. This aligns closely with HIPAA requirements for minimum necessary access and with the Saudi PDPL's provisions on sensitive personal data. Every access event is independently verified; no implicit trust is carried from one session to the next.",
+        },
+      ],
+      threatModel: {
+        title: "Threat Model Summary",
+        items: [
+          {
+            threat: "Laptop Theft",
+            mitigation:
+              "Local AES-256 encryption renders data unreadable without a successful biometric re-verification on the originating node. A stolen device yields no usable plaintext.",
+          },
+          {
+            threat: "Internal Network Compromise",
+            mitigation:
+              "Data in transit is already encrypted. An adversary on the network captures only ciphertext bound to a specific recipient's public key.",
+          },
+          {
+            threat: "Malicious Insider",
+            mitigation:
+              "The kill-switch authority allows administrators to instantly revoke key access for any identity, expiring all active sessions associated with that user across all nodes.",
+          },
+        ],
+      },
+      killswitch: {
+        title: "Kill-Switch Concept",
+        body: "A centralised kill-switch authority holds no medical data — only the authority to invalidate key-wrapping certificates. On activation, any file whose symmetric key was wrapped with the revoked certificate becomes permanently inaccessible, even if an attacker already holds the ciphertext.",
+      },
+    },
+    architectureDiagram: {
+      eyebrow: "System Architecture",
+      title: "Secure by Design: Our Zero-Trust Architecture",
+      caption:
+        "A high-level view of how each node operates independently while being governed by a central verification authority.",
+      note: "Biometric processing — including face recognition and liveness detection — occurs entirely on the local device. No biometric template or raw biometric data is transmitted to, or stored on, any central server.",
+      nodes: [
+        {
+          label: "Client Node",
+          desc: "Local AES-256 encryption · Local Face-ID AI Agent · No plaintext leaves the device",
+        },
+        {
+          label: "Zero-Trust Tunnel",
+          desc: "Mutual TLS · Ephemeral session keys · Forward secrecy by design",
+        },
+        {
+          label: "Key Verification & Kill-Switch Authority",
+          desc: "Verifies RSA-wrapped key permissions · Issues session grants · Kill-switch activation",
+        },
+        {
+          label: "Central Auth Server",
+          desc: "Identity verification · Public key directory · No medical data stored",
+        },
+      ],
+    },
+    realUseCase: {
+      eyebrow: "Applied Security",
+      title: "Securing High-Volume Medical Collaboration",
+      lead: "A neurologist at Hospital A needs to share a large MRI or DICOM imaging file with a data scientist at Hospital B for AI-assisted analysis. This is a routine but high-risk operation: the file is large, the network is shared, and the recipient's identity must be guaranteed.",
+      steps: [
+        {
+          step: "01",
+          title: "Local Encryption",
+          body: "The neurologist's workstation generates a unique AES-256 session key and encrypts the file locally. The plaintext never leaves the originating node.",
+        },
+        {
+          step: "02",
+          title: "Key Wrapping",
+          body: "The session key is wrapped using the data scientist's RSA-2048 public key, obtained from the verified institutional directory. Only the intended recipient can unwrap it.",
+        },
+        {
+          step: "03",
+          title: "Safe Transmission",
+          body: "The encrypted file and wrapped key travel over standard hospital or internet infrastructure. An interceptor captures only opaque ciphertext — useless without the private key.",
+        },
+        {
+          step: "04",
+          title: "Biometric Gate",
+          body: "Before decryption, the data scientist's local node requires a successful biometric verification. A stolen account alone is insufficient; physical presence and a verified biometric match are mandatory.",
+        },
+        {
+          step: "05",
+          title: "Secure Access",
+          body: "Only after verification does the local agent unwrap the key and decrypt the file in place. The result is strong, end-to-end protection that survives interception at every point.",
+        },
+      ],
+    },
+    benchmarks: {
+      eyebrow: "Performance Positioning",
+      title: "Engineered for Speed: Performance Benchmarks",
+      disclaimer:
+        "Figures shown are illustrative conceptual benchmarks based on well-established cryptographic literature. They are provided for relative comparison and educational positioning, not as certified laboratory results.",
+      metrics: [
+        {
+          category: "1 GB File Encryption Speed",
+          items: [
+            {
+              label: "Traffic Shield Hybrid (AES-256, local)",
+              value: "< 2 seconds",
+              highlight: true,
+            },
+            {
+              label: "Pure asymmetric encryption on large data (RSA only)",
+              value: "Impractical — minutes to hours",
+              highlight: false,
+            },
+          ],
+        },
+        {
+          category: "Ciphertext Size Overhead",
+          items: [
+            {
+              label: "AES-256 block cipher on bulk data",
+              value: "≈ 0% overhead",
+              highlight: true,
+            },
+            {
+              label: "Asymmetric padding on large payloads",
+              value: "Significant expansion per block",
+              highlight: false,
+            },
+          ],
+        },
+        {
+          category: "Biometric Verification Latency",
+          items: [
+            {
+              label: "Local on-device Face-ID check",
+              value: "< 300 ms (conceptual)",
+              highlight: true,
+            },
+            {
+              label: "Server round-trip authentication",
+              value: "600 ms – 2 s depending on network",
+              highlight: false,
+            },
+          ],
+        },
+      ],
+    },
     performance: {
       eyebrow: "04 — Unmatched Security Performance",
       title: "Built for enterprise scale, engineered for the next decade.",
@@ -384,6 +545,167 @@ export const content = {
       ],
       pullquote:
         "بتحويل العالم المادي إلى مادةٍ تشفيرية، نُلغي ثغرة الأسرار الثابتة.",
+    },
+    whitepaper: {
+      eyebrow: "موجز أمن الرعاية الصحية",
+      title:
+        "ما وراء كلمات المرور: عصر الثقة المعدومة البيومترية في الرعاية الصحية",
+      subtitle:
+        "لماذا تحتاج أمن الرعاية الصحية إلى تجاوز المصادقة المعتمدة على كلمات المرور.",
+      overview:
+        "يقع قطاع الرعاية الصحية عند تقاطع أكثر البيانات الشخصية حساسيةً وأشد الجهات التهديدية عدوانيةً. لم تعد المصادقة التقليدية بكلمات المرور أو الأجهزة وحدها كافية. يستعرض هذا الموجز إطارًا مفاهيميًا يجمع AES-256 للتشفير المحلي عالي السرعة مع RSA-2048 لتغليف المفاتيح، مُعزَّزًا بتحقق بيومتري محلي مستمر ومحكومًا بمبادئ الثقة المعدومة.",
+      concepts: [
+        {
+          title: "لماذا الرعاية الصحية هدفٌ عالي القيمة",
+          body: "تُباع السجلات الطبية بأسعار مرتفعة في الأسواق غير المشروعة. تُعطي مجموعات برامج الفدية والجهات الحكومية المتطورة الأولوية لمؤسسات الرعاية الصحية لأن ضغط استمرارية العمليات يجعل الاستسلام السريع أكثر احتمالًا. خرقٌ واحد قد يكشف تاريخ ملايين المرضى وبيانات التصوير الطبي ومعلومات التأمين.",
+        },
+        {
+          title: "حدود المصادقة بكلمة المرور",
+          body: "بيانات الاعتماد الثابتة قابلة للاختراق بطبيعتها: يمكن سرقتها بالتصيد، أو تسريبها في خروقات جهات خارجية، أو مشاركتها غير الرسمية بين الزملاء، أو التقاطها ببرمجيات التسجيل. المصادقة بالجهاز تضيف عاملًا ثانيًا، لكن جهازًا مسروقًا أو مخترقًا يُسقط هذه الضمانة. طبقة بيومترية محلية مستمرة تُغلق هذه الثغرة دون الحاجة إلى تخزين بيانات الهوية مركزيًا.",
+        },
+        {
+          title: "بنية تشفير هجينة",
+          body: "يوفر AES-256 الأداء اللازم لتشفير ملفات DICOM الضخمة أو سجلات المرضى المجمعة شبه الآني على العقدة المحلية. يُغلّف RSA-2048 مفتاح التشفير المتماثل الخاص بكل ملف بحيث لا يستطيع فكّه إلا المستلم المتحقق منه، الذي يُوزَّع مفتاحه العام عبر دليل موثوق. معًا، يوفر هذان المعياران الراسخان الأداء والتحكم الصارم في الوصول.",
+        },
+        {
+          title: "الثقة المعدومة والامتثال التنظيمي",
+          body: "يفترض نموذج الثقة المعدومة عدم الثقة بأي مستخدم أو جهاز أو شريحة شبكة افتراضيًا بصرف النظر عن موقعه. يتوافق هذا مع متطلبات HIPAA للوصول الضروري الحدّ الأدنى ومع أحكام نظام PDPL السعودي بشأن البيانات الشخصية الحساسة. كل حدثٍ وصول يُتحقق منه بشكل مستقل؛ لا ثقة ضمنية تُنقل من جلسةٍ إلى أخرى.",
+        },
+      ],
+      threatModel: {
+        title: "ملخص نموذج التهديد",
+        items: [
+          {
+            threat: "سرقة الحاسوب المحمول",
+            mitigation:
+              "يجعل تشفير AES-256 المحلي البيانات غير قابلة للقراءة دون إعادة تحقق بيومتري ناجحة على العقدة الأصلية. الجهاز المسروق لا يُنتج أي نصٍّ عادي قابل للاستخدام.",
+          },
+          {
+            threat: "اختراق الشبكة الداخلية",
+            mitigation:
+              "البيانات أثناء النقل مشفّرة مسبقًا. المهاجم على الشبكة لا يلتقط إلا نصًا مشفرًا مرتبطًا بمفتاح المستلم العام المحدد.",
+          },
+          {
+            threat: "تهديد داخلي خبيث",
+            mitigation:
+              "تُتيح سلطة مفتاح الإيقاف للمسؤولين إلغاء الوصول لأي هوية فورًا، مما يُنهي جميع الجلسات النشطة المرتبطة بذلك المستخدم عبر جميع العقد.",
+          },
+        ],
+      },
+      killswitch: {
+        title: "مفهوم مفتاح الإيقاف الطارئ",
+        body: "تحتفظ سلطة مفتاح الإيقاف المركزية ببيانات طبية صفرية — فقط صلاحية إبطال شهادات تغليف المفاتيح. عند التفعيل، يُصبح أي ملفٍ تمّ تغليف مفتاحه بالشهادة الملغاة غير قابلٍ للوصول بشكل دائم، حتى لو كان المهاجم يحتفظ بالنص المشفّر.",
+      },
+    },
+    architectureDiagram: {
+      eyebrow: "معمارية النظام",
+      title: "آمنة بالتصميم: معمارية الثقة المعدومة الخاصة بنا",
+      caption:
+        "نظرة عامة على مستوى عالٍ توضّح كيف تعمل كل عقدة باستقلالية تحت إشراف سلطة تحقق مركزية.",
+      note: "تتم معالجة البيانات البيومترية — بما في ذلك التعرف على الوجه واكتشاف الحيوية — بالكامل على الجهاز المحلي. لا تُنقل أي بيانات بيومترية ولا تُخزَّن على أي خادم مركزي.",
+      nodes: [
+        {
+          label: "العقدة المحلية",
+          desc: "تشفير AES-256 محلي · عميل الذكاء الاصطناعي للتعرف على الوجه · لا يغادر الجهاز أي نصٍّ عادي",
+        },
+        {
+          label: "النفق المعدوم الثقة",
+          desc: "TLS متبادل · مفاتيح جلسة مؤقتة · سرية إعادة التوجيه بالتصميم",
+        },
+        {
+          label: "سلطة التحقق من المفاتيح ومفتاح الإيقاف",
+          desc: "تتحقق من صلاحيات المفتاح الملفوف · تُصدر تفويضات الجلسة · تفعيل مفتاح الإيقاف الطارئ",
+        },
+        {
+          label: "خادم المصادقة المركزي",
+          desc: "التحقق من الهوية · دليل المفاتيح العامة · لا بيانات طبية مخزّنة",
+        },
+      ],
+    },
+    realUseCase: {
+      eyebrow: "أمنٌ مُطبَّق",
+      title: "تأمين التعاون الطبي للبيانات الضخمة",
+      lead: "طبيب أعصاب في مستشفى (أ) يحتاج إلى إرسال ملف تصوير بالرنين المغناطيسي أو صورة DICOM ضخمة إلى عالم بيانات في مستشفى (ب) للتحليل بالذكاء الاصطناعي. هذه عملية اعتيادية لكنها عالية الخطورة: الملف ضخم، والشبكة مشتركة، وهوية المستلم يجب أن تكون مضمونة.",
+      steps: [
+        {
+          step: "01",
+          title: "التشفير المحلي",
+          body: "تُولّد محطة الطبيب مفتاح جلسة AES-256 فريدًا وتشفّر الملف محليًا. النص العادي لا يغادر العقدة الأصلية أبدًا.",
+        },
+        {
+          step: "02",
+          title: "تغليف المفتاح",
+          body: "يُغلَّف مفتاح الجلسة باستخدام المفتاح العام RSA-2048 لعالم البيانات، المأخوذ من الدليل المؤسسي الموثوق. المستلم المقصود وحده يستطيع فكّ التغليف.",
+        },
+        {
+          step: "03",
+          title: "النقل الآمن",
+          body: "ينتقل الملف المشفّر والمفتاح الملفوف عبر البنية التحتية المعتادة للمستشفى أو الإنترنت. يلتقط المعترض نصًا مشفرًا مبهمًا لا قيمة له دون المفتاح الخاص.",
+        },
+        {
+          step: "04",
+          title: "البوابة البيومترية",
+          body: "قبل فك التشفير، تشترط العقدة المحلية لعالم البيانات اجتياز التحقق البيومتري بنجاح. حساب مسروق وحده غير كافٍ؛ الحضور الجسدي والمطابقة البيومترية المؤكدة إلزامية.",
+        },
+        {
+          step: "05",
+          title: "الوصول الآمن",
+          body: "بعد التحقق فقط يفكّ العميل المحلي تغليف المفتاح ويفك تشفير الملف في مكانه. الحصيلة حماية شاملة من طرف إلى طرف تصمد أمام الاعتراض في كل نقطة.",
+        },
+      ],
+    },
+    benchmarks: {
+      eyebrow: "تموضع الأداء",
+      title: "مصمم للسرعة: مقاييس الأداء",
+      disclaimer:
+        "الأرقام المعروضة هي مقاييس مفاهيمية توضيحية مستندة إلى الأدبيات التشفيرية الراسخة. تُقدَّم للمقارنة النسبية والتثقيف المهني، وليست نتائج مختبرية معتمدة.",
+      metrics: [
+        {
+          category: "سرعة تشفير ملف حجمه 1 جيجابايت",
+          items: [
+            {
+              label: "Traffic Shield الهجين (AES-256، محلي)",
+              value: "أقل من ثانيتين",
+              highlight: true,
+            },
+            {
+              label: "تشفير غير متماثل بحت (RSA فقط، بيانات كبيرة)",
+              value: "غير عملي — دقائق إلى ساعات",
+              highlight: false,
+            },
+          ],
+        },
+        {
+          category: "حجم التوسع في النص المشفّر",
+          items: [
+            {
+              label: "نهج AES-256 بالكتل المتماثلة على البيانات الضخمة",
+              value: "≈ 0% زيادة",
+              highlight: true,
+            },
+            {
+              label: "مخططات الحشو غير المتماثل على الأحمال الكبيرة",
+              value: "توسع ملحوظ لكل كتلة",
+              highlight: false,
+            },
+          ],
+        },
+        {
+          category: "زمن استجابة التحقق البيومتري",
+          items: [
+            {
+              label: "فحص Face-ID محلي على الجهاز",
+              value: "أقل من 300 مللي ثانية (مفاهيمي)",
+              highlight: true,
+            },
+            {
+              label: "مصادقة عبر رحلة ذهاب وإياب للخادم",
+              value: "600 مللي ثانية – 2 ثانية حسب الشبكة",
+              highlight: false,
+            },
+          ],
+        },
+      ],
     },
     performance: {
       eyebrow: "04 — أداء أمنيٌّ لا يُضاهى",

@@ -1,0 +1,156 @@
+You are a senior full-stack engineer working inside an existing production website built with Replit and deployed via Git/Vercel. Your task is to add a new website update without changing the current design system, without removing any existing content, and without breaking any existing features.
+
+Project rules:
+1. Do not delete or overwrite existing pages, components, routes, styles, translations, forms, or API logic.
+2. Do not change the current visual design language, layout structure, spacing system, typography scale, colors, or mobile behavior except where needed to place the new content.
+3. Add only the new content and the minimum supporting code required.
+4. The website supports Arabic and English. Every new section must exist in both languages and must be switchable using the existing language system.
+5. Keep all existing functionality intact.
+6. If the project has a CMS, structured content files, translation files, or component-based sections, use the existing architecture instead of inventing a new one.
+7. If any content is sensitive to security, present it only as conceptual, product-level, or high-level architectural documentation. Do not expose secrets, private keys, credentials, or implementation code for real security systems.
+
+Goal:
+Add a new informational update to the site for “Traffic Shield AI” with four new sections:
+- Whitepaper
+- Architecture Diagram
+- Real Use Case
+- Benchmark vs Alternatives
+
+This update is informational and marketing-oriented. It must be added to the site without altering the existing core product pages.
+
+Content requirements:
+A. Add a new page or a new section in the existing “Technology / How It Works” area, following the current site structure.
+B. Support both Arabic and English for every heading, paragraph, label, caption, and chart title.
+C. Preserve the current site’s responsiveness, especially on mobile.
+D. Ensure the new content looks native to the site and matches the existing design system.
+
+Required content to add:
+
+1) Whitepaper section
+Purpose: explain the market problem and the conceptual solution.
+English content:
+Title: Beyond Passwords: The Era of Biometric Zero-Trust in Healthcare
+Subtitle: Why healthcare security needs a move beyond password-based access.
+
+Include these concepts in a clean, professional way:
+- The healthcare sector faces high-value cyber threats.
+- Passwords and device-based login are not enough.
+- A hybrid architecture concept using AES-256 for fast local encryption and RSA-2048 for key wrapping.
+- Continuous biometric identity as a conceptual access layer.
+- Zero-trust principles.
+- Compliance-oriented language for HIPAA and PDPL.
+- Threat model summary covering laptop theft, internal network compromise, and malicious insiders.
+- Kill-switch concept as a security control.
+
+Arabic content:
+Translate the same meaning naturally and professionally, not word-for-word.
+Use high-quality Arabic suitable for a technical or executive audience.
+Keep the Arabic aligned with the English version in meaning and depth.
+
+2) Architecture Diagram section
+Purpose: show a high-level architectural explanation.
+English title:
+Secure by Design: Our Zero-Trust Architecture
+
+Arabic title:
+آمنة بالتصميم: معمارية الثقة المعدومة الخاصة بنا
+
+Add a diagram or diagram-like visual block that clearly shows:
+- Client Node
+- Central Auth / Verification Server
+- Zero-Trust Tunnel
+- Local AES-256 encryption
+- Local Face-ID AI Agent
+- Key Verification & Kill-Switch Authority
+- No medical data stored centrally
+
+Requirements:
+- If the project already has a chart or diagram component, reuse it.
+- If not, build a clean static diagram using existing UI primitives.
+- The diagram must be simple, readable, and mobile-friendly.
+- Add explanatory text below it in both languages.
+- Do not claim that biometric data is sent to the cloud. State clearly that biometric processing is local/edge-based in the concept.
+- Do not make the page look like a technical paper; it should remain a polished website section.
+
+3) Real Use Case section
+Purpose: present a practical scenario to make the concept easy to understand.
+English title:
+Securing High-Volume Medical Collaboration
+
+Arabic title:
+تأمين التعاون الطبي للبيانات الضخمة
+
+Scenario:
+A neurologist in Hospital A sends a large MRI/DICOM file to a data scientist in Hospital B for AI analysis.
+
+Explain:
+- The file is encrypted locally using AES-256.
+- The file key is wrapped with the recipient’s public key conceptually.
+- The encrypted file can move through ordinary networks safely.
+- The recipient cannot open it until the local biometric verification passes.
+- The result is strong protection even if the file or account is intercepted.
+
+Arabic version must preserve the same meaning and be written naturally.
+
+4) Benchmark vs Alternatives section
+Purpose: show performance positioning in a marketing-friendly way.
+English title:
+Engineered for Speed: Performance Benchmarks
+
+Arabic title:
+مصمم للسرعة: مقاييس الأداء
+
+Add comparison visuals or cards for:
+- 1GB file encryption speed
+- Ciphertext expansion
+- Biometric verification latency
+
+Use safe, conceptual benchmark wording:
+- Traffic Shield Hybrid AES-256: extremely fast local encryption
+- Pure asymmetric encryption for large data: impractical for large files
+- AES-based approach: minimal size overhead
+- Biometric verification: fast local check with low latency
+
+Important:
+Do not present false scientific claims as verified laboratory results unless the numbers are clearly labeled as illustrative or conceptual.
+If numbers are used, label them as “illustrative” or “conceptual benchmarks” unless the project already contains verified benchmark data.
+Do not overstate security guarantees with absolute claims. Use measured language.
+
+Implementation requirements:
+1. Identify the correct files for content, translation, and page rendering.
+2. Add the new sections into the existing website architecture.
+3. Update translation files or localization objects so Arabic and English both render properly.
+4. Keep the existing language switch working.
+5. Keep all current routes and existing sections intact.
+6. Reuse existing typography, cards, containers, buttons, separators, and icon system.
+7. Make the new section visually consistent with the current website.
+8. Ensure no build errors and no typecheck errors.
+9. Ensure the site remains responsive on desktop, tablet, and mobile.
+10. If charts are used, keep them lightweight and visually clean.
+11. If a diagram is used, keep it simple and not image-heavy.
+12. Do not introduce new dependencies unless absolutely necessary.
+
+Content handling requirements:
+- Use polished marketing copy, not raw technical notes.
+- The update must feel like part of the same brand.
+- The Arabic and English versions must be equally complete.
+- Do not remove or simplify existing copy.
+- Do not change the current homepage hero, navigation, footer, or existing product flows unless required for routing the new section.
+
+Acceptance criteria:
+- Existing site still works exactly as before.
+- New whitepaper-style content is visible in both Arabic and English.
+- New architecture diagram section is visible.
+- New real use case section is visible.
+- New benchmark section is visible.
+- Mobile layout is preserved.
+- Build passes.
+- Typecheck passes.
+- No existing feature is broken.
+
+Output format:
+1. List the files changed.
+2. Show the new or updated components.
+3. Show translation updates for Arabic and English.
+4. Confirm the update is integrated without removing anything.
+5. Keep the implementation minimal, clean, and production-ready.

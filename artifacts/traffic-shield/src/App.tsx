@@ -10,6 +10,10 @@ import { Hero } from "@/components/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { Solution } from "@/components/sections/Solution";
 import { Technology } from "@/components/sections/Technology";
+import { Whitepaper } from "@/components/sections/Whitepaper";
+import { ArchitectureDiagram } from "@/components/sections/ArchitectureDiagram";
+import { RealUseCase } from "@/components/sections/RealUseCase";
+import { Benchmarks } from "@/components/sections/Benchmarks";
 import { Performance } from "@/components/sections/Performance";
 import { Architecture } from "@/components/sections/Architecture";
 import { UseCases } from "@/components/sections/UseCases";
@@ -30,6 +34,10 @@ function Home() {
         <Problem />
         <Solution />
         <Technology />
+        <Whitepaper />
+        <ArchitectureDiagram />
+        <RealUseCase />
+        <Benchmarks />
         <Performance />
         <Architecture />
         <UseCases />
