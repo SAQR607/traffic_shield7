@@ -1,0 +1,63 @@
+You are working inside an existing Replit project connected to GitHub and deployed on Vercel.
+
+Problem:
+Vercel deployment is failing because Git commits were created using an invalid Replit-generated email:
+
+[50739673-t6770434@users.noreply.replit.com](mailto:50739673-t6770434@users.noreply.replit.com)
+
+Vercel cannot identify the commit author correctly, which blocks deployment and GitHub identity verification.
+
+Task:
+Fix the Git identity configuration completely inside the Replit environment and ensure all future commits use the correct GitHub identity.
+
+Requirements:
+
+1. Detect the currently configured Git user.name and user.email.
+2. Replace the invalid Replit email with the actual GitHub account email.
+3. Configure Git globally inside Replit.
+4. Ensure future commits use the corrected identity.
+5. Rewrite the latest commit author if necessary.
+6. Push the corrected commit safely to GitHub.
+7. Do not break the repository state.
+8. Explain exactly what was changed.
+
+Implementation steps:
+
+1. Run:
+   git config --global --list
+
+2. Detect invalid Replit-generated email.
+
+3. Replace configuration using:
+   git config --global user.name "REAL_GITHUB_USERNAME"
+   git config --global user.email "REAL_GITHUB_EMAIL"
+
+4. Verify configuration again.
+
+5. Rewrite the latest commit author metadata:
+   git commit --amend --reset-author --no-edit
+
+6. Push corrected commit:
+   git push --force origin main
+
+7. Confirm:
+
+* the repository is clean
+* commits now use the correct GitHub identity
+* Vercel deployments can proceed normally
+
+Important constraints:
+
+* Do not delete commits.
+* Do not reset the repository.
+* Do not modify project source files unnecessarily.
+* Only fix Git identity and deployment metadata issues.
+* Preserve all existing project work.
+
+Output requirements:
+
+1. Show detected old Git config.
+2. Show updated Git config.
+3. Confirm latest commit author was rewritten.
+4. Confirm push completed successfully.
+5. Confirm Vercel deployment issue is resolved.
