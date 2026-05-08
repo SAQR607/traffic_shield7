@@ -46,10 +46,11 @@ export const teamMembers: TeamMember[] = [
       en: "Abdulrahman architects the core of Traffic Shield AI — from the hybrid entropy engine to the real-time key generation pipeline. He drives product vision, technical strategy, and the platform's zero-trust design principles.",
       ar: "يُشكّل عبدالرحمن النواة التقنية لمنصة Traffic Shield AI، من محرك الإنتروبيا الهجين إلى مسار توليد المفاتيح الآني. يقود رؤية المنتج والاستراتيجية التقنية ومبادئ تصميم الثقة المعدومة للمنصة.",
     },
-    // ← Replace this file to update the photo: public/team/abdulrahman-heiba.jpg
-    image: "/team/abdulrahman-heiba.jpg",
+    // ← Replace this file to update the photo: public/team/abdulrahman-heiba.png
+    image: "/team/abdulrahman-heiba.png",
     // ← Update this URL to change the LinkedIn link
-    linkedin: "https://linkedin.com/in/abdulrahman-heiba",
+    linkedin:
+      "https://www.linkedin.com/in/abdulrahman-heiba-2a0150403?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   },
   {
     id: "ziad-mohamed",
@@ -65,10 +66,10 @@ export const teamMembers: TeamMember[] = [
       en: "Ziad owns the adversarial side of Traffic Shield AI. He designs and executes penetration testing frameworks, validates the resilience of every cryptographic layer, and ensures the platform holds under real-world attack conditions.",
       ar: "يتولى زياد الجانب الهجومي في Traffic Shield AI. يصمم أطر اختبار الاختراق وينفذها، ويتحقق من صمود كل طبقة تشفيرية، ويضمن أداء المنصة تحت ظروف الهجوم الفعلية.",
     },
-    // ← Replace this file to update the photo: public/team/ziad-mohamed.jpg
-    image: "/team/ziad-mohamed.jpg",
+    // ← Replace this file to update the photo: public/team/ziad-mohamed.png
+    image: "/team/ziad-mohamed.png",
     // ← Update this URL to change the LinkedIn link
-    linkedin: "https://linkedin.com/in/ziad-mohamed",
+    linkedin: "https://www.linkedin.com/in/ziadmohamed-tx0",
   },
   {
     id: "sama-diaa",
@@ -84,16 +85,16 @@ export const teamMembers: TeamMember[] = [
       en: "Sama leads institutional outreach and strategic partnerships for Traffic Shield AI. She builds and manages relationships with enterprise clients, government bodies, and investment partners, translating technical strengths into tangible business outcomes.",
       ar: "تقود سما مبادرات التواصل المؤسسي والشراكات الاستراتيجية لمنصة Traffic Shield AI. تبني العلاقات مع العملاء المؤسسيين والجهات الحكومية وشركاء الاستثمار، وتحوّل القدرات التقنية إلى نتائج أعمال ملموسة.",
     },
-    // ← Replace this file to update the photo: public/team/sama-diaa.jpg
-    image: "/team/sama-diaa.jpg",
+    // ← Replace this file to update the photo: public/team/sama-diaa.png
+    image: "/team/sama-diaa.png",
     // ← Update this URL to change the LinkedIn link
-    linkedin: "https://linkedin.com/in/sama-diaa",
+    linkedin: "https://www.linkedin.com/in/sama-diaa-010531318",
   },
   {
     id: "ibrahim-ahmed-saqr",
     name: {
-      en: "Ibrahim Ahmed Saqr",
-      ar: "إبراهيم أحمد صقر",
+      en: "SAQR",
+      ar: "صقر",
     },
     role: {
       en: "Head of Technical Support & Backend Integration",
@@ -103,10 +104,10 @@ export const teamMembers: TeamMember[] = [
       en: "Ibrahim ensures that Traffic Shield AI integrates smoothly into enterprise environments. He leads backend integration engineering, manages client technical onboarding, and maintains the reliability of core platform infrastructure.",
       ar: "يضمن إبراهيم تكامل منصة Traffic Shield AI بسلاسة في البيئات المؤسسية. يقود هندسة تكامل الخلفية، ويدير الإعداد التقني للعملاء، ويحافظ على موثوقية البنية التحتية الأساسية للمنصة.",
     },
-    // ← Replace this file to update the photo: public/team/ibrahim-ahmed-saqr.jpg
-    image: "/team/ibrahim-ahmed-saqr.jpg",
+    // ← Replace this file to update the photo: public/team/ibrahim-ahmed-saqr.png
+    image: "/team/ibrahim-ahmed-saqr.png",
     // ← Update this URL to change the LinkedIn link
-    linkedin: "https://linkedin.com/in/ibrahim-ahmed-saqr",
+    linkedin: "https://www.linkedin.com/in/ibrahim-ahmed-saqr7",
   },
   {
     id: "samah-johnson",
@@ -122,9 +123,10 @@ export const teamMembers: TeamMember[] = [
       en: "Samah directs the marketing strategy and team operations for Traffic Shield AI. She oversees brand positioning, content campaigns, and go-to-market execution — ensuring the platform's story reaches the right enterprise and government audiences.",
       ar: "تُوجّه سماح استراتيجية التسويق وعمليات الفريق في Traffic Shield AI. تشرف على تحديد موقع العلامة التجارية والحملات وتنفيذ خطط الدخول للسوق، لضمان وصول قصة المنصة إلى الجمهور المؤسسي والحكومي المستهدف.",
     },
-    // ← Replace this file to update the photo: public/team/samah-johnson.jpg
-    image: "/team/samah-johnson.jpg",
+    // ← Replace this file to update the photo: public/team/samah-johnson.png
+    image: "/team/samah-johnson.png",
     // ← Update this URL to change the LinkedIn link
-    linkedin: "https://linkedin.com/in/samah-johnson",
+    linkedin:
+      "https://www.linkedin.com/in/samahjohnson?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   },
 ];
