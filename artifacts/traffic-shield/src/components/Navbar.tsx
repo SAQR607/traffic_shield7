@@ -13,6 +13,7 @@ const SECTIONS: Array<{ id: string; key: keyof ReturnType<typeof useI18n>["t"]["
   { id: "use-cases", key: "useCases" },
   { id: "dashboard", key: "dashboard" },
   { id: "why-us", key: "whyUs" },
+  { id: "founding-team", key: "foundingTeam" },
   { id: "roadmap", key: "roadmap" },
 ];
 
