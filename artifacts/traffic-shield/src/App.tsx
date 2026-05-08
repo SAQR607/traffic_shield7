@@ -20,6 +20,7 @@ import { Architecture } from "@/components/sections/Architecture";
 import { UseCases } from "@/components/sections/UseCases";
 import { DashboardPreview } from "@/components/sections/DashboardPreview";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { FoundingTeam } from "@/components/sections/FoundingTeam";
 import { Roadmap } from "@/components/sections/Roadmap";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
@@ -44,6 +45,7 @@ function Home() {
         <UseCases />
         <DashboardPreview />
         <WhyUs />
+        <FoundingTeam />
         <Roadmap />
         <Contact />
       </main>

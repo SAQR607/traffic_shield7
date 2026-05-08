@@ -385,6 +385,13 @@ export const content = {
         },
       ],
     },
+    foundingTeam: {
+      eyebrow: "The People Behind It",
+      title: "Founding Team",
+      subtitle:
+        "The experts behind Traffic Shield AI's Zero-Trust security architecture.",
+      linkedinLabel: "Connect on LinkedIn",
+    },
     roadmap: {
       eyebrow: "09 — The Road Ahead",
       title: "From foundation to global standard.",
@@ -848,6 +855,13 @@ export const content = {
           body: "ننتقل إلى نموذج إيراداتٍ متكررة، عالي الهامش، عبر تكاملاتٍ تعتمد على الواجهات في كافة البنى التحتية للمؤسسات حول العالم.",
         },
       ],
+    },
+    foundingTeam: {
+      eyebrow: "الأشخاص وراء المنصة",
+      title: "الفريق المؤسس",
+      subtitle:
+        "الخبراء المسؤولون عن تطوير معمارية الثقة المعدومة الخاصة بمنصة Traffic Shield AI.",
+      linkedinLabel: "تواصل على LinkedIn",
     },
     roadmap: {
       eyebrow: "09 — الطريق أمامنا",

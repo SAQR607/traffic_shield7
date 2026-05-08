@@ -1,0 +1,162 @@
+You are a senior frontend engineer working on an existing production website built with Replit and deployed on Vercel.
+
+Your task is to add a new “Founding Team” section to the website using the existing design system and localization structure.
+
+Critical constraints:
+
+1. Do NOT redesign the website.
+2. Do NOT remove or modify existing sections.
+3. Do NOT change routing unless required.
+4. Keep all current responsive behavior intact.
+5. The site already supports Arabic and English. The new section MUST support both languages.
+6. No admin panel is needed.
+7. Team data must be editable directly from a single structured file inside the codebase.
+8. Make the system extremely simple to maintain manually.
+
+Goal:
+Create a maintainable “Founding Team” section with:
+
+* Profile image
+* Full name
+* Role/title
+* Short description/bio
+* LinkedIn profile link
+
+The section must visually match the current site.
+
+Data source requirements:
+Create ONE centralized editable file for the team data.
+
+Example structure:
+src/data/team.ts
+or
+src/content/team.ts
+
+Use a clean array structure like:
+
+export const teamMembers = [
+{
+id: "abdulrahman-heiba",
+name: {
+en: "Abdulrahman Heiba",
+ar: "عبدالرحمن هيبة"
+},
+role: {
+en: "Founder and Software Development Lead",
+ar: "المؤسس وقائد تطوير البرمجيات"
+},
+bio: {
+en: "...",
+ar: "..."
+},
+image: "/team/abdulrahman.jpg",
+linkedin: "https://linkedin.com/in/..."
+}
+]
+
+Important:
+The goal is that later I can update:
+
+* images
+* LinkedIn URLs
+* names
+* bios
+
+ONLY by editing this single file and replacing images inside:
+public/team/
+
+No dashboard.
+No CMS.
+No database.
+
+Implementation requirements:
+
+1. Create a reusable TeamSection component.
+2. Create reusable TeamCard components if appropriate.
+3. Use existing typography, spacing, cards, animations, and responsive utilities from the project.
+4. Add graceful hover behavior for LinkedIn links.
+5. Ensure cards stack correctly on mobile.
+6. Optimize images properly.
+7. Use lazy loading if the current project already uses it.
+8. Preserve performance and avoid unnecessary dependencies.
+
+Localization requirements:
+
+* All visible text must support both Arabic and English.
+* Use the existing translation architecture.
+* Section title and subtitles must also be localized.
+
+Required section content:
+Section title:
+EN: Founding Team
+AR: الفريق المؤسس
+
+Section subtitle:
+EN: The experts behind Traffic Shield AI’s Zero-Trust security architecture.
+AR: الخبراء المسؤولون عن تطوير معمارية الثقة المعدومة الخاصة بمنصة Traffic Shield AI.
+
+Use the attached team profile document as the primary source for:
+
+* names
+* positions
+* role descriptions
+
+Team members to include:
+
+1. Abdulrahman Heiba
+   Role:
+   Founder and Software Development Lead
+
+2. Ziad Mohamed
+   Role:
+   Security Lead and Penetration Tester
+
+3. Sama Diaa
+   Role:
+   Head of Relations and Sales
+
+4. Ibrahim Ahmed Saqr
+   Role:
+   Head of Technical Support and Backend Integration
+
+5. Samah Johnson
+   Role:
+   Head of Marketing and Marketing Team Follow-up
+
+Use concise professional bios adapted from the attached document.
+
+LinkedIn requirements:
+
+* Add a LinkedIn button/icon on every card.
+* Open in new tab.
+* Use secure rel attributes.
+
+Image handling requirements:
+
+* Store images inside:
+  public/team/
+
+* Use predictable filenames.
+
+* Add comments in the data file explaining:
+  “Replace image files here to update profile pictures.”
+
+Maintainability requirements:
+At the top of the data file, add clear developer comments explaining:
+
+* where to change names
+* where to change bios
+* where to replace photos
+* where to update LinkedIn URLs
+
+Do not build a dashboard.
+Do not use a database.
+Do not introduce authentication.
+
+Output requirements:
+
+1. List all created/modified files.
+2. Show the centralized team data file.
+3. Show the TeamSection component.
+4. Confirm where future edits should be made manually.
+5. Ensure build passes and no existing functionality breaks.
