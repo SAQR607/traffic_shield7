@@ -1,0 +1,130 @@
+You are a senior frontend engineer working on an existing production website.
+
+Task:
+Refactor and improve only the visual presentation of the Founding Team section so it looks premium, balanced, and professional. The current layout is visually weak. The new design must make each person clearly visible, improve hierarchy, and feel like a polished enterprise website section.
+
+Hard constraints:
+
+1. Do not change the content, names, roles, LinkedIn links, or bios.
+2. Do not remove any team member.
+3. Do not change the rest of the website.
+4. Keep Arabic and English support intact.
+5. Do not introduce a dashboard, CMS, or database.
+6. Do not add unnecessary dependencies.
+7. Keep the implementation simple, maintainable, and production-ready.
+
+Current problem to fix:
+
+* The cards feel too empty and poorly balanced.
+* Profile images are cropped inconsistently and some faces are not visible enough.
+* The text hierarchy is weak.
+* The cards do not feel premium.
+* The LinkedIn button is too weak visually.
+* The section lacks consistent alignment, spacing, and visual rhythm.
+* Mobile and desktop presentation need to be cleaner and more elegant.
+
+Required visual improvements:
+
+1. Create a stronger card layout with clear hierarchy:
+
+   * Top: large, clearly visible profile image
+   * Middle: name in strong weight
+   * Below name: role in uppercase or small-caps style
+   * Below that: bio with controlled line length
+   * Bottom: LinkedIn button anchored consistently
+
+2. Improve image presentation:
+
+   * Make every face clearly visible
+   * Use consistent image frame size across all cards
+   * Prevent awkward cropping
+   * Use object-cover only if it preserves faces well
+   * If needed, use object-contain with a controlled background
+   * Add a subtle gradient or soft background behind the image area
+   * Align all portraits to the same visual baseline
+
+3. Improve card structure:
+
+   * Use equal-height cards
+   * Add more balanced padding
+   * Add subtle borders and depth
+   * Add refined hover states
+   * Keep the cards elegant, not flashy
+   * Ensure spacing between image, name, role, bio, and button is consistent
+
+4. Improve typography:
+
+   * Make names more prominent
+   * Make roles smaller but clear
+   * Improve line height for bios
+   * Prevent dense paragraph blocks
+   * Keep the section readable and high-end
+
+5. Improve LinkedIn button:
+
+   * Make it visually stronger and cleaner
+   * Add icon + label
+   * Keep it aligned at the bottom of each card
+   * Use a polished hover effect
+   * Open in a new tab with secure rel attributes
+
+6. Improve layout responsiveness:
+
+   * Desktop: 3-column grid or equivalent premium arrangement
+   * Tablet: 2 columns
+   * Mobile: 1 column
+   * Preserve clear spacing at all breakpoints
+   * Avoid cramped stacking
+
+7. Add visual polish:
+
+   * Subtle background treatment for the whole section
+   * Better card separation
+   * Smooth hover lift or glow
+   * More premium shadows and borders
+   * Keep it consistent with the site’s dark theme
+
+Implementation requirements:
+
+* Refactor the existing Founding Team section component only.
+* Reuse the current data file for team members.
+* Do not rewrite the entire site.
+* If needed, split the section into smaller reusable components:
+
+  * TeamSection
+  * TeamCard
+  * TeamAvatar
+* Keep code clean and easy to edit.
+
+Content behavior requirements:
+
+* Keep the same names, bios, roles, and links.
+* Keep Arabic and English versions working.
+* Do not alter the meaning of the copy.
+* Do not change the data source format unless needed for styling.
+
+Design target:
+The section should feel like a polished executive/team showcase:
+
+* clearly visible faces
+* premium spacing
+* strong typography
+* balanced cards
+* clean LinkedIn CTA
+* professional enterprise presentation
+
+Acceptance criteria:
+
+* Every person is clearly visible.
+* Cards look consistent and high quality.
+* The section feels modern and intentional.
+* Arabic and English still work.
+* Mobile display is clean.
+* No existing functionality breaks.
+
+Output requirements:
+
+1. Show the files changed.
+2. Show the updated team card component.
+3. Show the updated section layout.
+4. Keep the changes minimal but visually significant.
