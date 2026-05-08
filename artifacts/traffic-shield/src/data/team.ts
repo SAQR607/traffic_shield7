@@ -53,44 +53,6 @@ export const teamMembers: TeamMember[] = [
       "https://www.linkedin.com/in/abdulrahman-heiba-2a0150403?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   },
   {
-    id: "ziad-mohamed",
-    name: {
-      en: "Ziad Mohamed",
-      ar: "زياد محمد",
-    },
-    role: {
-      en: "Security Lead & Penetration Tester",
-      ar: "قائد الأمن والاختبار الاختراقي",
-    },
-    bio: {
-      en: "Ziad owns the adversarial side of Traffic Shield AI. He designs and executes penetration testing frameworks, validates the resilience of every cryptographic layer, and ensures the platform holds under real-world attack conditions.",
-      ar: "يتولى زياد الجانب الهجومي في Traffic Shield AI. يصمم أطر اختبار الاختراق وينفذها، ويتحقق من صمود كل طبقة تشفيرية، ويضمن أداء المنصة تحت ظروف الهجوم الفعلية.",
-    },
-    // ← Replace this file to update the photo: public/team/ziad-mohamed.png
-    image: "/team/ziad-mohamed.png",
-    // ← Update this URL to change the LinkedIn link
-    linkedin: "https://www.linkedin.com/in/ziadmohamed-tx0",
-  },
-  {
-    id: "sama-diaa",
-    name: {
-      en: "Sama Diaa",
-      ar: "سما ضياء",
-    },
-    role: {
-      en: "Head of Relations & Sales",
-      ar: "رئيسة العلاقات والمبيعات",
-    },
-    bio: {
-      en: "Sama leads institutional outreach and strategic partnerships for Traffic Shield AI. She builds and manages relationships with enterprise clients, government bodies, and investment partners, translating technical strengths into tangible business outcomes.",
-      ar: "تقود سما مبادرات التواصل المؤسسي والشراكات الاستراتيجية لمنصة Traffic Shield AI. تبني العلاقات مع العملاء المؤسسيين والجهات الحكومية وشركاء الاستثمار، وتحوّل القدرات التقنية إلى نتائج أعمال ملموسة.",
-    },
-    // ← Replace this file to update the photo: public/team/sama-diaa.png
-    image: "/team/sama-diaa.png",
-    // ← Update this URL to change the LinkedIn link
-    linkedin: "https://www.linkedin.com/in/sama-diaa-010531318",
-  },
-  {
     id: "ibrahim-ahmed-saqr",
     name: {
       en: "SAQR",
@@ -128,5 +90,43 @@ export const teamMembers: TeamMember[] = [
     // ← Update this URL to change the LinkedIn link
     linkedin:
       "https://www.linkedin.com/in/samahjohnson?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  },
+  {
+    id: "ziad-mohamed",
+    name: {
+      en: "Ziad Mohamed",
+      ar: "زياد محمد",
+    },
+    role: {
+      en: "Security Lead & Penetration Tester",
+      ar: "قائد الأمن والاختبار الاختراقي",
+    },
+    bio: {
+      en: "Ziad owns the adversarial side of Traffic Shield AI. He designs and executes penetration testing frameworks, validates the resilience of every cryptographic layer, and ensures the platform holds under real-world attack conditions.",
+      ar: "يتولى زياد الجانب الهجومي في Traffic Shield AI. يصمم أطر اختبار الاختراق وينفذها، ويتحقق من صمود كل طبقة تشفيرية، ويضمن أداء المنصة تحت ظروف الهجوم الفعلية.",
+    },
+    // ← Replace this file to update the photo: public/team/ziad-mohamed.png
+    image: "/team/ziad-mohamed.png",
+    // ← Update this URL to change the LinkedIn link
+    linkedin: "https://www.linkedin.com/in/ziadmohamed-tx0",
+  },
+  {
+    id: "sama-diaa",
+    name: {
+      en: "Sama Diaa",
+      ar: "سما ضياء",
+    },
+    role: {
+      en: "Head of Relations & Sales",
+      ar: "رئيسة العلاقات والمبيعات",
+    },
+    bio: {
+      en: "Sama leads institutional outreach and strategic partnerships for Traffic Shield AI. She builds and manages relationships with enterprise clients, government bodies, and investment partners, translating technical strengths into tangible business outcomes.",
+      ar: "تقود سما مبادرات التواصل المؤسسي والشراكات الاستراتيجية لمنصة Traffic Shield AI. تبني العلاقات مع العملاء المؤسسيين والجهات الحكومية وشركاء الاستثمار، وتحوّل القدرات التقنية إلى نتائج أعمال ملموسة.",
+    },
+    // ← Replace this file to update the photo: public/team/sama-diaa.png
+    image: "/team/sama-diaa.png",
+    // ← Update this URL to change the LinkedIn link
+    linkedin: "https://www.linkedin.com/in/sama-diaa-010531318",
   },
 ];
