@@ -72,6 +72,25 @@ export const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/ibrahim-ahmed-saqr7",
   },
   {
+    id: "ziad-mohamed",
+    name: {
+      en: "Ziad Mohamed",
+      ar: "زياد محمد",
+    },
+    role: {
+      en: "Security Lead & Penetration Tester",
+      ar: "قائد الأمن والاختبار الاختراقي",
+    },
+    bio: {
+      en: "Ziad owns the adversarial side of Traffic Shield AI. He designs and executes penetration testing frameworks, validates the resilience of every cryptographic layer, and ensures the platform holds under real-world attack conditions.",
+      ar: "يتولى زياد الجانب الهجومي في Traffic Shield AI. يصمم أطر اختبار الاختراق وينفذها، ويتحقق من صمود كل طبقة تشفيرية، ويضمن أداء المنصة تحت ظروف الهجوم الفعلية.",
+    },
+    // ← Replace this file to update the photo: public/team/ziad-mohamed.png
+    image: "/team/ziad-mohamed.png",
+    // ← Update this URL to change the LinkedIn link
+    linkedin: "https://www.linkedin.com/in/ziadmohamed-tx0",
+  },
+  {
     id: "samah-johnson",
     name: {
       en: "Samah Johnson",
@@ -90,25 +109,6 @@ export const teamMembers: TeamMember[] = [
     // ← Update this URL to change the LinkedIn link
     linkedin:
       "https://www.linkedin.com/in/samahjohnson?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-  },
-  {
-    id: "ziad-mohamed",
-    name: {
-      en: "Ziad Mohamed",
-      ar: "زياد محمد",
-    },
-    role: {
-      en: "Security Lead & Penetration Tester",
-      ar: "قائد الأمن والاختبار الاختراقي",
-    },
-    bio: {
-      en: "Ziad owns the adversarial side of Traffic Shield AI. He designs and executes penetration testing frameworks, validates the resilience of every cryptographic layer, and ensures the platform holds under real-world attack conditions.",
-      ar: "يتولى زياد الجانب الهجومي في Traffic Shield AI. يصمم أطر اختبار الاختراق وينفذها، ويتحقق من صمود كل طبقة تشفيرية، ويضمن أداء المنصة تحت ظروف الهجوم الفعلية.",
-    },
-    // ← Replace this file to update the photo: public/team/ziad-mohamed.png
-    image: "/team/ziad-mohamed.png",
-    // ← Update this URL to change the LinkedIn link
-    linkedin: "https://www.linkedin.com/in/ziadmohamed-tx0",
   },
   {
     id: "sama-diaa",
