@@ -91,26 +91,6 @@ export const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/ziadmohamed-tx0",
   },
   {
-    id: "samah-johnson",
-    name: {
-      en: "Samah Johnson",
-      ar: "سماح جونسون",
-    },
-    role: {
-      en: "Head of Marketing",
-      ar: "رئيسة التسويق",
-    },
-    bio: {
-      en: "Samah directs the marketing strategy and team operations for Traffic Shield AI. She oversees brand positioning, content campaigns, and go-to-market execution — ensuring the platform's story reaches the right enterprise and government audiences.",
-      ar: "تُوجّه سماح استراتيجية التسويق وعمليات الفريق في Traffic Shield AI. تشرف على تحديد موقع العلامة التجارية والحملات وتنفيذ خطط الدخول للسوق، لضمان وصول قصة المنصة إلى الجمهور المؤسسي والحكومي المستهدف.",
-    },
-    // ← Replace this file to update the photo: public/team/samah-johnson.png
-    image: "/team/samah-johnson.png",
-    // ← Update this URL to change the LinkedIn link
-    linkedin:
-      "https://www.linkedin.com/in/samahjohnson?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-  },
-  {
     id: "sama-diaa",
     name: {
       en: "Sama Diaa",
