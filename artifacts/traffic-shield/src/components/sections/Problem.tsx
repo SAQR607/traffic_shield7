@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { AlertTriangle, KeyRound, ShieldOff } from "lucide-react";
+import { ShieldOff, Link2, Clock } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { SectionWrapper, Eyebrow } from "@/components/SectionWrapper";
 
-const ICONS = [KeyRound, ShieldOff, AlertTriangle];
+const ICONS = [ShieldOff, Link2, Clock];
 
 export function Problem() {
   const { t } = useI18n();
@@ -23,7 +23,7 @@ export function Problem() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
           {t.problem.cards.map((card, i) => {
-            const Icon = ICONS[i] ?? KeyRound;
+            const Icon = ICONS[i] ?? ShieldOff;
             return (
               <motion.div
                 key={card.title}

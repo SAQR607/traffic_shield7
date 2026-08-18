@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { useCreateDemoRequest } from "@workspace/api-client-react";
 import { useI18n } from "@/lib/i18n";
+import { media } from "@/config/media";
 
 type DemoModalContextValue = {
   open: () => void;
@@ -116,7 +117,7 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
               <DialogHeader className="text-start">
                 <div className="inline-flex items-center gap-2 mb-3 text-[10px] uppercase tracking-[0.25em] font-mono text-gold/80">
                   <span className="h-px w-6 bg-gold/40" />
-                  Traffic Shield AI
+                  {media.brand.wordmark}
                 </div>
                 <DialogTitle className="font-display text-2xl font-light tracking-tight">
                   {t.demoModal.title}
@@ -182,9 +183,7 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
                       className={fieldClass}
                       placeholder={t.demoModal.placeholders.company}
                       data-testid="demo-input-company"
-                      {...register("company", {
-                        required: t.demoModal.validation.company,
-                      })}
+                      {...register("company")}
                     />
                     {errors.company && (
                       <p className={errorClass}>{errors.company.message}</p>

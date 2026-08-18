@@ -1,21 +1,20 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * FOUNDING TEAM DATA — single source of truth
+ * TEAM DATA — single source of truth
  * ─────────────────────────────────────────────────────────────────────────────
  *
  * HOW TO MAINTAIN THIS FILE
  * ──────────────────────────
  * • Names / roles / bios → edit the fields below directly.
- * • Photos               → replace the file inside public/team/ with the same
+ * • Illustrations        → replace the file inside public/team/ with the same
  *                          filename listed in the `image` field, then redeploy.
  * • LinkedIn URLs        → update the `linkedin` field for each member.
  *
- * PHOTO GUIDELINES
+ * IMAGE GUIDELINES
  * ─────────────────
  * • Store images in:  artifacts/traffic-shield/public/team/
- * • Recommended size: 400 × 400 px, square crop, JPEG or WebP.
+ * • Recommended size: 800 × 800 px, square, PNG or SVG.
  * • Keep filenames lowercase with hyphens, matching the `image` field below.
- *   e.g.  public/team/abdulrahman-heiba.jpg
  *
  * ─────────────────────────────────────────────────────────────────────────────
  */
@@ -43,10 +42,10 @@ export const teamMembers: TeamMember[] = [
       ar: "المؤسس وقائد تطوير البرمجيات",
     },
     bio: {
-      en: "Abdulrahman architects the core of Traffic Shield AI — from the hybrid entropy engine to the real-time key generation pipeline. He drives product vision, technical strategy, and the platform's zero-trust design principles.",
-      ar: "يُشكّل عبدالرحمن النواة التقنية لمنصة Traffic Shield AI، من محرك الإنتروبيا الهجين إلى مسار توليد المفاتيح الآني. يقود رؤية المنتج والاستراتيجية التقنية ومبادئ تصميم الثقة المعدومة للمنصة.",
+      en: "Abdulrahman architects the core of Traffic Shield — from the local encryption engine to the public-key exchange that powers secure file transfers. He drives product vision, technical strategy, and the app's cross-platform design.",
+      ar: "يُشكّل عبدالرحمن النواة التقنية لتطبيق Traffic Shield، من محرك التشفير المحلي إلى آلية تبادل المفاتيح العامة التي تُشغّل نقل الملفات الآمن. يقود رؤية المنتج والاستراتيجية التقنية وتصميم التطبيق متعدد المنصات.",
     },
-    // ← Replace this file to update the photo: public/team/abdulrahman-heiba.png
+    // ← Replace this file to update the illustration: public/team/abdulrahman-heiba.png
     image: "/team/abdulrahman-heiba.png",
     // ← Update this URL to change the LinkedIn link
     linkedin:
@@ -63,10 +62,10 @@ export const teamMembers: TeamMember[] = [
       ar: "رئيس الدعم التقني وتكاملات الخلفية",
     },
     bio: {
-      en: "Ibrahim ensures that Traffic Shield AI integrates smoothly into enterprise environments. He leads backend integration engineering, manages client technical onboarding, and maintains the reliability of core platform infrastructure.",
-      ar: "يضمن إبراهيم تكامل منصة Traffic Shield AI بسلاسة في البيئات المؤسسية. يقود هندسة تكامل الخلفية، ويدير الإعداد التقني للعملاء، ويحافظ على موثوقية البنية التحتية الأساسية للمنصة.",
+      en: "Ibrahim ensures Traffic Shield installs smoothly and runs reliably on both Windows and Linux. He leads backend integration, manages user support, and maintains the reliability of the app's core infrastructure.",
+      ar: "يضمن إبراهيم تثبيت وتشغيل Traffic Shield بسلاسة وموثوقية على أنظمة Windows وLinux. يقود تكامل الخلفية، ويدير دعم المستخدمين، ويحافظ على موثوقية البنية التحتية الأساسية للتطبيق.",
     },
-    // ← Replace this file to update the photo: public/team/ibrahim-ahmed-saqr.png
+    // ← Replace this file to update the illustration: public/team/ibrahim-ahmed-saqr.png
     image: "/team/ibrahim-ahmed-saqr.png",
     // ← Update this URL to change the LinkedIn link
     linkedin: "https://www.linkedin.com/in/ibrahim-ahmed-saqr7",
@@ -82,31 +81,12 @@ export const teamMembers: TeamMember[] = [
       ar: "قائد الأمن والاختبار الاختراقي",
     },
     bio: {
-      en: "Ziad owns the adversarial side of Traffic Shield AI. He designs and executes penetration testing frameworks, validates the resilience of every cryptographic layer, and ensures the platform holds under real-world attack conditions.",
-      ar: "يتولى زياد الجانب الهجومي في Traffic Shield AI. يصمم أطر اختبار الاختراق وينفذها، ويتحقق من صمود كل طبقة تشفيرية، ويضمن أداء المنصة تحت ظروف الهجوم الفعلية.",
+      en: "Ziad owns the adversarial side of Traffic Shield. He designs and runs penetration testing against the encryption and key-exchange flow, and makes sure the app holds up under real-world attack conditions.",
+      ar: "يتولى زياد الجانب الهجومي في Traffic Shield. يصمم وينفذ اختبارات الاختراق على مسار التشفير وتبادل المفاتيح، ويضمن صمود التطبيق تحت ظروف الهجوم الفعلية.",
     },
-    // ← Replace this file to update the photo: public/team/ziad-mohamed.png
+    // ← Replace this file to update the illustration: public/team/ziad-mohamed.png
     image: "/team/ziad-mohamed.png",
     // ← Update this URL to change the LinkedIn link
     linkedin: "https://www.linkedin.com/in/ziadmohamed-tx0",
-  },
-  {
-    id: "sama-diaa",
-    name: {
-      en: "Sama Diaa",
-      ar: "سما ضياء",
-    },
-    role: {
-      en: "Head of Relations & Sales",
-      ar: "رئيسة العلاقات والمبيعات",
-    },
-    bio: {
-      en: "Sama leads institutional outreach and strategic partnerships for Traffic Shield AI. She builds and manages relationships with enterprise clients, government bodies, and investment partners, translating technical strengths into tangible business outcomes.",
-      ar: "تقود سما مبادرات التواصل المؤسسي والشراكات الاستراتيجية لمنصة Traffic Shield AI. تبني العلاقات مع العملاء المؤسسيين والجهات الحكومية وشركاء الاستثمار، وتحوّل القدرات التقنية إلى نتائج أعمال ملموسة.",
-    },
-    // ← Replace this file to update the photo: public/team/sama-diaa.png
-    image: "/team/sama-diaa.png",
-    // ← Update this URL to change the LinkedIn link
-    linkedin: "https://www.linkedin.com/in/sama-diaa-010531318",
   },
 ];

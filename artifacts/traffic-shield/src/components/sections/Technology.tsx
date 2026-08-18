@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { Activity, Zap, Shuffle, Quote } from "lucide-react";
+import { Lock, KeyRound, Scale, Quote } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { SectionWrapper, Eyebrow } from "@/components/SectionWrapper";
 
-const ICONS = [Activity, Zap, Shuffle];
+const ICONS = [Lock, KeyRound, Scale];
 
 export function Technology() {
   const { t } = useI18n();
@@ -24,7 +24,7 @@ export function Technology() {
 
           <div className="lg:col-span-7 space-y-px bg-white/5 rounded-2xl overflow-hidden border border-white/5">
             {t.technology.items.map((item, i) => {
-              const Icon = ICONS[i] ?? Activity;
+              const Icon = ICONS[i] ?? Lock;
               return (
                 <motion.div
                   key={item.title}

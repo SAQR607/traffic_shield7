@@ -11,17 +11,8 @@ import { Hero } from "@/components/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { Solution } from "@/components/sections/Solution";
 import { Technology } from "@/components/sections/Technology";
-import { Whitepaper } from "@/components/sections/Whitepaper";
-import { ArchitectureDiagram } from "@/components/sections/ArchitectureDiagram";
-import { RealUseCase } from "@/components/sections/RealUseCase";
-import { Benchmarks } from "@/components/sections/Benchmarks";
-import { Performance } from "@/components/sections/Performance";
-import { Architecture } from "@/components/sections/Architecture";
 import { UseCases } from "@/components/sections/UseCases";
-import { DashboardPreview } from "@/components/sections/DashboardPreview";
-import { WhyUs } from "@/components/sections/WhyUs";
 import { FoundingTeam } from "@/components/sections/FoundingTeam";
-import { Roadmap } from "@/components/sections/Roadmap";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -36,17 +27,8 @@ function Home() {
         <Problem />
         <Solution />
         <Technology />
-        <Whitepaper />
-        <ArchitectureDiagram />
-        <RealUseCase />
-        <Benchmarks />
-        <Performance />
-        <Architecture />
         <UseCases />
-        <DashboardPreview />
-        <WhyUs />
         <FoundingTeam />
-        <Roadmap />
         <Contact />
       </main>
       <Footer />

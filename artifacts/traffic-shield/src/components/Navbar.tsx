@@ -8,17 +8,12 @@ const SECTIONS: Array<{ id: string; key: keyof ReturnType<typeof useI18n>["t"]["
   { id: "problem", key: "problem" },
   { id: "solution", key: "solution" },
   { id: "technology", key: "technology" },
-  { id: "performance", key: "performance" },
-  { id: "architecture", key: "architecture" },
   { id: "use-cases", key: "useCases" },
-  { id: "dashboard", key: "dashboard" },
-  { id: "why-us", key: "whyUs" },
   { id: "founding-team", key: "foundingTeam" },
-  { id: "roadmap", key: "roadmap" },
 ];
 
 export function Navbar() {
-  const { t, locale, toggleLocale } = useI18n();
+  const { t } = useI18n();
   const { open: openDemo } = useDemoModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -60,16 +55,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={toggleLocale}
-            className="inline-flex items-center justify-center rounded-full border border-white/15 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-white/80 transition hover:border-gold/40 hover:text-white min-w-[44px]"
-            aria-label="Toggle language"
-            data-testid="lang-toggle"
-          >
-            <span className={locale === "ar" ? "font-arabic" : ""}>
-              {t.misc.langToggle}
-            </span>
-          </button>
           <button
             onClick={openDemo}
             className="hidden sm:inline-flex items-center rounded-full bg-gold px-4 py-1.5 text-xs font-medium text-black transition hover:bg-[#d6b15a]"

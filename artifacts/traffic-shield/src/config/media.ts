@@ -9,8 +9,8 @@ export const media = {
     domain: "trafficshield.cloud",
   },
   brand: {
-    wordmark: "TRAFFIC SHIELD AI",
-    short: "TS•AI",
+    wordmark: "TRAFFIC SHIELD",
+    short: "TS",
   },
 } as const;
 

@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { Banknote, Antenna, Shield } from "lucide-react";
+import { User, Briefcase, Building2 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { SectionWrapper, Eyebrow } from "@/components/SectionWrapper";
 
-const ICONS = [Banknote, Antenna, Shield];
+const ICONS = [User, Briefcase, Building2];
 
 export function UseCases() {
   const { t } = useI18n();
@@ -27,7 +27,7 @@ export function UseCases() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {t.useCases.sectors.map((sector, i) => {
-            const Icon = ICONS[i] ?? Banknote;
+            const Icon = ICONS[i] ?? User;
             return (
               <motion.div
                 key={sector.name}
